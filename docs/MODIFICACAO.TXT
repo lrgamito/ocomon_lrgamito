@@ -1,0 +1,132 @@
+*******************************************
+DOCUMENTAÇÃO DE MODIFICAÇÃO OCOMON
+
+MODIFICAÇÕES POR LEANDRO R. GAMITO
+
+LR.GAMITO@GMAIL.COM
+
+Qualquer modificação futura, por favor documentar.
+
+********************************************
+Explicações
+-----------
+
+O ocomon é um sistema para cadastro e acompanhamento de chamados técnicos e inventário de equipamentos de informática, 
+desenvolvido sob a Licença GPL (leia mais no site http://www.gnu.org/licenses/gpl.html), para saber mais sobre o sistema 
+acesse: http://http://ocomonphp.sourceforge.net/.
+
+Essas modificações foram feitas por mim, e para uso da empresa onde atualmente trabalho, se caso não se adequar ao método de
+trabalho de sua empresa, sinta-se livre em altera-lo. Dentre elas estão muitas correções de BUG e algumas implementações que 
+diferem da versão original.
+
+Estou disponibilizando para aqueles que não tem conhecimento em PHP, ou até mesmo tempo para contribuir com suas modificações.
+Caso encontre algum BUG, sinta-se livre em me contatar. 
+
+Coloquei a versão como -lrgamito, pois não sabia como proceder no caso de ser uma versão RC. Se alguem discordar ou tiver alguma
+sugestão, por favor me comunique.
+
+Abraços, e façam bom uso.
+
+********************************************
+
+VERSÃO 2.6.2-lrgamito
+
+*Bugs referentes ao Internet Explorer e Chrome
+*Bug upload imagem no equipamento
+
+
+
+
+
+
+
+
+**********************************************
+
+
+LANÇANDO A VERSÃO 2.6.1-lrgamito
+PRÉVIA PARA A VERSÃO FINAL, ARRUMANDO TODOS OS BUGS
+
+GERAL
+
+1 - Modificações vizuais.
+    1.1 - Modificados os icones padrão para um formato uniforme e open-source. Escolhi o Tango.
+    1.2 - Modificados o layout superior para uma melhor aparência, adicionados icones. Modificada a cor padrão.
+    1.3 - Adicionando Icones nos botões.
+3 - Adicionando script vbs e área admin, para inventário automático de hardware e futuramente software.
+4 - Adicionado controle melhor de preventivas, com datas de controle.
+5 - Controles de telas automatizados. Ex: Carregar o Local automaticamente quando perde o foco do input 'Etiqueta'.
+
+
+BUGS
+
+1 - Vários Bugs relacionados ao navegador Chrome. Ele parece não entender as "{}" corretamente no Javascript.
+ 
+
+
+
+*******************************************
+GERAL
+ocomon_2.0RC6\index.php
+		1 - Incluido Logotipo da empresa, Ainda não incluido em banco, mas futuramente será.
+
+MOD. OCOMON
+ocomon_2.0RC6\ocomon\incluir.php
+		1 - Modificado linha 578 campo "Enviar e-mail para", "Área Responsável", de checked para "".
+ocomon_2.0RC6\ocomon\relatorio_gerencial.php
+		1 - Modificar Bug de relatórios
+ocomon_2.0RC6\ocomon\encerramento.php
+		1 - Arrumado Bug de assentamento, linha 535.
+		2 - Inseridas Variaveis de controle de query, linhas 540,550,560.
+		3 - Arrumados vários bugs de query, inserindo chaves primarias.
+		
+MOD. INVMON
+ocomon_2.0RC6\invmon\abertura.php
+		1 - Modificado o rodapé, incluido informações da empresa, linha 133. 
+		2 - Comentada linhas 127:131.
+ocomon_2.0RC6\invmon\altera_dados_computador.php
+		1 - Modificação, alterado campo cd-rom para comportar CD-ROM, DVD e GRAVADOR em um único campo. Inclusão de campos OS, Serial OS e Leitor de Cartões.
+			1.1 - Das linhas 342:363, alteração campo.
+			1.2 - Das linhas 365:382, comentado campo.
+			1.3 - Das linhas 384:401, incluido campo.
+			1.4 - Das linhas 403:420, comentado campo.
+			1.5 - Das linhas 423:440, incluido campo.
+			1.6 - Das linhas 442:445, incluido campo.
+		2 - alterado query para registrar campos incluidos. linhas 738:752.
+			2.1 - mensagens de erro de inclusão dos novos campos, linhas 825:844.
+		3 - comentada a linha 526 e adicionada a 527. campo instituição era desabilitado para não admins da área.
+ocomon_2.0RC6\invmon\estat_monitorporlocal.php
+		1 - Arquivo estat_monitorporlocal.php - foi criado com base no estat_compporlocal.php, somente modificado o Titulo e o select.
+			Não existe na versão oficial.
+ocomon_2.0RC6\invmon\relatorios.php
+		1 - Adicionado o relatório estat_monitorporlocal.php, linha 59.
+ocomon_2.0RC6\invmon\incluir_computador.php
+		1 - incluido variável cor para realce de campos obrigatórios, linha 37.
+		2 - alterado select para busca informações de modelo com campos novos, linhas 61:63, 88,89.
+		3 - Modificação, alterado campo cd-rom para comportar CD-ROM, DVD e GRAVADOR em um único campo. Inclusão de campos OS, Serial OS e Leitor de Cartões.
+			3.1 - Das linhas 418:437, comentado campo.
+			3.2 - Das linhas 439:458, incluido campo.
+			3.3 - Das linhas 460:478, alterado campo.
+			3.4 - Das linhas 480:498, comentado campo.
+			3.5 - Das linhas 500:518, incluido campo.
+			3.6 - Das linhas 520:523, incluido campo.
+		4 - Incluido em query os campos que foram adicionados, linhas 821:833.
+ocomon_2.0RC6\invmon\mostra_consulta_comp.php
+		1 - Campos inclusos, linhas 225:227.
+		2 - Campos inclusos, linhas 872:895.
+ocomon_2.0RC6\invmon\incluir_molde.php
+		1 - Inclusão de campo leitor de cartão em cadastro de modelos, linhas 283:298.
+		2 - Comentado campo cd-gravador no cadastro de modelos, linhas 300:316.
+		3 - Comentado campo cd-dvd no cadastro de modelos, linhas 341:359.
+		4 - Inclusão de campo sistema operacional em cadastro de modelos, linhas 361:380.
+		5 - Alteração de insert para adição de campos novos linhas 502,510.
+ocomon_2.0RC6\consulta_comp.php
+		1 - Comentado campos gravador cd e dvd, pois não trariam mais registros. linha 298:310 e 328:338.
+ocomon_2.0RC6\mostra_consulta_inv.php
+		1 - Adicionado campos novos, linhas 256:278.
+		2 - Comentado campos não mais utilizados, linhas 279:292.
+ocomon_2.0RC6\relatorio_gerencial.php
+		1 - Modificação de variáveis de área para calculo de geração de gráfico, tag: <GAMBIARRA/>
+		 
+
+

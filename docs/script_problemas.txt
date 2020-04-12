@@ -1,0 +1,9 @@
+SELECT P.prob_tipo_1 CODIGO, P1.probt1_desc DESCRICAO, COUNT( o.problema ) QUANTIDADE
+FROM ocorrencias O
+INNER JOIN problemas P ON ( O.problema = p.prob_id )
+INNER JOIN prob_tipo_1 P1 ON ( P.prob_tipo_1 = P1.probt1_cod )
+WHERE o.data_abertura
+BETWEEN '2010-05-01'
+AND '2010-06-01'
+GROUP BY P.prob_tipo_1, P1.probt1_desc
+LIMIT 0 , 30

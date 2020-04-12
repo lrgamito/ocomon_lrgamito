@@ -1,0 +1,11 @@
+select e.comp_inv as ETIQUETA, mem.mdit_desc_capacidade as MEM_CAP, 
+proc.mdit_desc_capacidade as PROC_CLOCK, proc.mdit_desc as PROC_NOME, 
+sit.situac_nome as SITUACAO,
+local.local AS LOCAL
+from ((((equipamentos e 
+left join modelos_itens as mem on mem.mdit_cod = e.comp_memo)
+left join modelos_itens as proc on proc.mdit_cod = e.comp_proc)
+left join situacao as sit on sit.situac_cod = e.comp_situac)
+left join localizacao as local on local.loc_id = e.comp_local)
+where e.comp_tipo_equip = 1
+and e.comp_situac in (1,6,8)
